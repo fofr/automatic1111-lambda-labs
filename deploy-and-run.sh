@@ -10,7 +10,7 @@ fi
 IP_ADDRESS="$1"
 
 # SCP the run.sh file to the remote server
-scp run.sh "ubuntu@${IP_ADDRESS}:"
+scp run.sh config.json "ubuntu@${IP_ADDRESS}:"
 
 # SSH into the remote server and run run.sh
 ssh "ubuntu@${IP_ADDRESS}" "chmod +x run.sh && ./run.sh && bash"
