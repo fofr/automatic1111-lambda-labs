@@ -3,13 +3,17 @@
 # install A1111's stable-diffusion-webui
 git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
 
+cd stable-diffusion-webui
+git checkout a9fed7c
+cd ..
+
 # install extensions
 git clone https://github.com/hako-mikan/sd-webui-regional-prompter.git stable-diffusion-webui/extensions/sd-webui-regional-prompter
 git clone https://github.com/Mikubill/sd-webui-controlnet.git stable-diffusion-webui/extensions/sd-webui-controlnet
 git clone https://github.com/deforum-art/sd-webui-modelscope-text2video.git stable-diffusion-webui/extensions/sd-webui-modelscope-text2video
 
 # install Deliberate v2
-wget --trust-server-names --content-disposition -O deliberate_v2.safetensors "https://civitai.com/api/download/models/15236?type=Model&format=SafeTensor"
+wget --trust-server-names --no-verbose --content-disposition -O deliberate_v2.safetensors "https://civitai.com/api/download/models/15236?type=Model&format=SafeTensor"
 mv deliberate_v2.safetensors stable-diffusion-webui/models/Stable-diffusion/deliberate_v2.safetensors
 
 # move config
@@ -29,8 +33,7 @@ URLS=(
 "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_seg-fp16.safetensors"
 "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_canny-fp16.safetensors"
 "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_color-fp16.safetensors"
-"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/
-t2iadapter_depth-fp16.safetensors"
+"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_depth-fp16.safetensors"
 "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_keypose-fp16.safetensors"
 "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_openpose-fp16.safetensors"
 "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_seg-fp16.safetensors"
@@ -40,7 +43,7 @@ t2iadapter_depth-fp16.safetensors"
 
 mkdir -p "$TARGET_DIR"
 for url in "${URLS[@]}"; do
-  wget -P "$TARGET_DIR" "$url"
+  wget --no-verbose -P "$TARGET_DIR" "$url"
 done
 
 # install ModelScope text2video models
@@ -54,7 +57,7 @@ URLS=(
 
 mkdir -p "$TARGET_DIR"
 for url in "${URLS[@]}"; do
-  wget -P "$TARGET_DIR" "$url"
+  wget --no-verbose -P "$TARGET_DIR" "$url"
 done
 
 # run webui
