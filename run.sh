@@ -9,10 +9,13 @@ git clone https://github.com/Mikubill/sd-webui-controlnet.git stable-diffusion-w
 git clone https://github.com/deforum-art/sd-webui-modelscope-text2video.git stable-diffusion-webui/extensions/sd-webui-modelscope-text2video
 
 # install Deliberate v2
-wget --trust-server-names --content-disposition -O deliberate_v2.safetensors -P stable-diffusion-webui/models/Stable-diffusion "https://civitai.com/api/download/models/odel&format=SafeTensor"
+wget --trust-server-names --content-disposition -O deliberate_v2.safetensors "https://civitai.com/api/download/models/15236?type=Model&format=SafeTensor"
 mv deliberate_v2.safetensors stable-diffusion-webui/models/Stable-diffusion/deliberate_v2.safetensors
 
-# install Controlnet and t2iadapters
+# move config
+mv config.json stable-diffusion-webui/config.json
+
+# install Controlnet models and t2iadapters
 # https://github.com/TheLastBen/fast-stable-diffusion/blob/main/AUTOMATIC1111_files/CN_models.txt
 TARGET_DIR="stable-diffusion-webui/extensions/sd-webui-controlnet/models"
 URLS=(
@@ -54,18 +57,6 @@ for url in "${URLS[@]}"; do
   wget -P "$TARGET_DIR" "$url"
 done
 
-CONFIG_FILE="config.json"
-
 # run webui
 cd stable-diffusion-webui
-
-# Check if the config file exists
-if [ ! -f "$CONFIG_FILE" ]; then
-    echo "Error: $CONFIG_FILE not found."
-    exit 1
-fi
-
-# Modify the control_net_max_models_num property
-jq '.control_net_max_models_num = 10 | .control_net_allow_script_control = true' "$CONFIG_FILE" > "tmp_$CONFIG_FILE" && mv "tmp_$CONFIG_FILE" "$CONFIG_FILE"
-
-./webui.sh --share
+./webui.sh --share --no-download-sd-model
