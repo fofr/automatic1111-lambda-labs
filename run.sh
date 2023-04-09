@@ -11,6 +11,7 @@ cd ..
 git clone https://github.com/hako-mikan/sd-webui-regional-prompter.git stable-diffusion-webui/extensions/sd-webui-regional-prompter
 git clone https://github.com/Mikubill/sd-webui-controlnet.git stable-diffusion-webui/extensions/sd-webui-controlnet
 git clone https://github.com/deforum-art/sd-webui-modelscope-text2video.git stable-diffusion-webui/extensions/sd-webui-modelscope-text2video
+git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui-aesthetic-gradients stable-diffusion-webui/extensions/stable-diffusion-webui-aesthetic-gradients
 
 # install Deliberate v2
 wget --trust-server-names --no-verbose --content-disposition -O deliberate_v2.safetensors "https://civitai.com/api/download/models/15236?type=Model&format=SafeTensor"
