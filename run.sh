@@ -3,10 +3,6 @@
 # install A1111's stable-diffusion-webui
 git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
 
-cd stable-diffusion-webui
-git checkout a9fed7c
-cd ..
-
 # install extensions
 git clone https://github.com/hako-mikan/sd-webui-regional-prompter.git stable-diffusion-webui/extensions/sd-webui-regional-prompter
 git clone https://github.com/Mikubill/sd-webui-controlnet.git stable-diffusion-webui/extensions/sd-webui-controlnet
@@ -40,6 +36,16 @@ URLS=(
 "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_seg-fp16.safetensors"
 "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_sketch-fp16.safetensors"
 "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_style-fp16.safetensors"
+"https://huggingface.co/thibaud/controlnet-sd21/resolve/main/depth-sd21-safe.safetensors"
+"https://huggingface.co/thibaud/controlnet-sd21/resolve/main/color-sd21-safe.safetensors"
+"https://huggingface.co/thibaud/controlnet-sd21/resolve/main/canny-sd21-safe.safetensors"
+"https://huggingface.co/thibaud/controlnet-sd21/resolve/main/ade20k-sd21-safe.safetensors"
+"https://huggingface.co/thibaud/controlnet-sd21/resolve/main/hed-sd21-safe.safetensors"
+"https://huggingface.co/thibaud/controlnet-sd21/resolve/main/lineart-sd21-safe.safetensors"
+"https://huggingface.co/thibaud/controlnet-sd21/resolve/main/normalbae-sd21-safe.safetensors"
+"https://huggingface.co/thibaud/controlnet-sd21/resolve/main/openposev2-sd21-safe.safetensors"
+"https://huggingface.co/thibaud/controlnet-sd21/resolve/main/scribble-sd21-safe.safetensors"
+"https://huggingface.co/thibaud/controlnet-sd21/resolve/main/zoedepth-sd21-safe.safetensors"
 )
 
 mkdir -p "$TARGET_DIR"
@@ -61,6 +67,8 @@ for url in "${URLS[@]}"; do
   wget --no-verbose -P "$TARGET_DIR" "$url"
 done
 
+# TODO: Add videocrafter
+# https://huggingface.co/kabachuha/videocrafter-pruned-weights/resolve/main/model.ckpt
 # run webui
 cd stable-diffusion-webui
 ./webui.sh --share --no-download-sd-model
