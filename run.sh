@@ -16,6 +16,19 @@ mv deliberate_v2.safetensors stable-diffusion-webui/models/Stable-diffusion/deli
 # move config
 mv config.json stable-diffusion-webui/config.json
 
+# install Stable Diffusion models SD2.1
+TARGET_DIR="stable-diffusion-webui/models/Stable-diffusion"
+URLS=(
+"https://huggingface.co/stabilityai/stable-diffusion-2-1/resolve/main/v2-1_768-ema-pruned.safetensors"
+)
+
+for url in "${URLS[@]}"; do
+  wget --no-verbose -P "$TARGET_DIR" "$url"
+done
+
+wget -O v2-1_768-ema-pruned.yaml "https://github.com/Stability-AI/stablediffusion/raw/main/configs/stable-diffusion/v2-inference-v.yaml"
+mv v2-1_768-ema-pruned.yaml stable-diffusion-webui/models/Stable-diffusion/v2-1_768-ema-pruned.yaml
+
 # install Controlnet models and t2iadapters
 # https://github.com/TheLastBen/fast-stable-diffusion/blob/main/AUTOMATIC1111_files/CN_models.txt
 TARGET_DIR="stable-diffusion-webui/extensions/sd-webui-controlnet/models"
