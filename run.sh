@@ -84,4 +84,5 @@ done
 # https://huggingface.co/kabachuha/videocrafter-pruned-weights/resolve/main/model.ckpt
 # run webui
 cd stable-diffusion-webui
+# python launch.py --share --no-download-sd-model
 ./webui.sh --share --no-download-sd-model
