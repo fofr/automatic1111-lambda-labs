@@ -1,0 +1,13 @@
+[Unit]
+Description=WebUI Script Service
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+ExecStart=/home/ubuntu/stable-diffusion-webui/webui.sh --listen --port 7860 --api --no-download-sd-model
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

@@ -59,6 +59,12 @@ URLS=(
 "https://huggingface.co/thibaud/controlnet-sd21/resolve/main/openposev2-sd21-safe.safetensors"
 "https://huggingface.co/thibaud/controlnet-sd21/resolve/main/scribble-sd21-safe.safetensors"
 "https://huggingface.co/thibaud/controlnet-sd21/resolve/main/zoedepth-sd21-safe.safetensors"
+# "https://huggingface.co/thibaud/controlnet-sd21/resolve/main/hed-sd21-safe.safetensors"
+# "https://huggingface.co/thibaud/controlnet-sd21/resolve/main/lineart-sd21-safe.safetensors"
+# "https://huggingface.co/thibaud/controlnet-sd21/resolve/main/normalbae-sd21-safe.safetensors"
+# "https://huggingface.co/thibaud/controlnet-sd21/resolve/main/openposev2-sd21-safe.safetensors"
+# "https://huggingface.co/thibaud/controlnet-sd21/resolve/main/scribble-sd21-safe.safetensors"
+# "https://huggingface.co/thibaud/controlnet-sd21/resolve/main/zoedepth-sd21-safe.safetensors"
 )
 
 mkdir -p "$TARGET_DIR"
@@ -82,7 +88,4 @@ done
 
 # TODO: Add videocrafter
 # https://huggingface.co/kabachuha/videocrafter-pruned-weights/resolve/main/model.ckpt
-# run webui
-cd stable-diffusion-webui
-# python launch.py --share --no-download-sd-model
 ./webui.sh --share --no-download-sd-model
