@@ -7,18 +7,15 @@ git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
 git clone https://github.com/hako-mikan/sd-webui-regional-prompter.git stable-diffusion-webui/extensions/sd-webui-regional-prompter
 git clone https://github.com/Mikubill/sd-webui-controlnet.git stable-diffusion-webui/extensions/sd-webui-controlnet
 git clone https://github.com/deforum-art/sd-webui-modelscope-text2video.git stable-diffusion-webui/extensions/sd-webui-modelscope-text2video
-git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui-aesthetic-gradients stable-diffusion-webui/extensions/stable-diffusion-webui-aesthetic-gradients
-
-# install Deliberate v2
-wget --trust-server-names --no-verbose --content-disposition -O deliberate_v2.safetensors "https://civitai.com/api/download/models/15236?type=Model&format=SafeTensor"
-mv deliberate_v2.safetensors stable-diffusion-webui/models/Stable-diffusion/deliberate_v2.safetensors
+# git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui-aesthetic-gradients stable-diffusion-webui/extensions/stable-diffusion-webui-aesthetic-gradients
 
 # move config
 mv config.json stable-diffusion-webui/config.json
 
-# install Stable Diffusion models SD2.1
+# install Stable Diffusion models
 TARGET_DIR="stable-diffusion-webui/models/Stable-diffusion"
 URLS=(
+"https://huggingface.co/XpucT/Deliberate/resolve/main/Deliberate_v2.safetensors"
 "https://huggingface.co/stabilityai/stable-diffusion-2-1/resolve/main/v2-1_768-ema-pruned.safetensors"
 )
 
