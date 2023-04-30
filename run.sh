@@ -16,15 +16,11 @@ mv config.json stable-diffusion-webui/config.json
 TARGET_DIR="stable-diffusion-webui/models/Stable-diffusion"
 URLS=(
 "https://huggingface.co/XpucT/Deliberate/resolve/main/Deliberate_v2.safetensors"
-"https://huggingface.co/stabilityai/stable-diffusion-2-1/resolve/main/v2-1_768-ema-pruned.safetensors"
 )
 
 for url in "${URLS[@]}"; do
   wget --no-verbose -P "$TARGET_DIR" "$url"
 done
-
-wget -O v2-1_768-ema-pruned.yaml "https://github.com/Stability-AI/stablediffusion/raw/main/configs/stable-diffusion/v2-inference-v.yaml"
-mv v2-1_768-ema-pruned.yaml stable-diffusion-webui/models/Stable-diffusion/v2-1_768-ema-pruned.yaml
 
 # install Controlnet models and t2iadapters
 # https://github.com/TheLastBen/fast-stable-diffusion/blob/main/AUTOMATIC1111_files/CN_models.txt
@@ -46,22 +42,6 @@ URLS=(
 "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_seg-fp16.safetensors"
 "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_sketch-fp16.safetensors"
 "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_style-fp16.safetensors"
-"https://huggingface.co/thibaud/controlnet-sd21/resolve/main/depth-sd21-safe.safetensors"
-"https://huggingface.co/thibaud/controlnet-sd21/resolve/main/color-sd21-safe.safetensors"
-"https://huggingface.co/thibaud/controlnet-sd21/resolve/main/canny-sd21-safe.safetensors"
-"https://huggingface.co/thibaud/controlnet-sd21/resolve/main/ade20k-sd21-safe.safetensors"
-"https://huggingface.co/thibaud/controlnet-sd21/resolve/main/hed-sd21-safe.safetensors"
-"https://huggingface.co/thibaud/controlnet-sd21/resolve/main/lineart-sd21-safe.safetensors"
-"https://huggingface.co/thibaud/controlnet-sd21/resolve/main/normalbae-sd21-safe.safetensors"
-"https://huggingface.co/thibaud/controlnet-sd21/resolve/main/openposev2-sd21-safe.safetensors"
-"https://huggingface.co/thibaud/controlnet-sd21/resolve/main/scribble-sd21-safe.safetensors"
-"https://huggingface.co/thibaud/controlnet-sd21/resolve/main/zoedepth-sd21-safe.safetensors"
-# "https://huggingface.co/thibaud/controlnet-sd21/resolve/main/hed-sd21-safe.safetensors"
-# "https://huggingface.co/thibaud/controlnet-sd21/resolve/main/lineart-sd21-safe.safetensors"
-# "https://huggingface.co/thibaud/controlnet-sd21/resolve/main/normalbae-sd21-safe.safetensors"
-# "https://huggingface.co/thibaud/controlnet-sd21/resolve/main/openposev2-sd21-safe.safetensors"
-# "https://huggingface.co/thibaud/controlnet-sd21/resolve/main/scribble-sd21-safe.safetensors"
-# "https://huggingface.co/thibaud/controlnet-sd21/resolve/main/zoedepth-sd21-safe.safetensors"
 )
 
 mkdir -p "$TARGET_DIR"
