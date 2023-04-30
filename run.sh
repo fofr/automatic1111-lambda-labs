@@ -7,7 +7,7 @@ git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
 git clone https://github.com/hako-mikan/sd-webui-regional-prompter.git stable-diffusion-webui/extensions/sd-webui-regional-prompter
 git clone https://github.com/Mikubill/sd-webui-controlnet.git stable-diffusion-webui/extensions/sd-webui-controlnet
 git clone https://github.com/deforum-art/sd-webui-modelscope-text2video.git stable-diffusion-webui/extensions/sd-webui-modelscope-text2video
-# git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui-aesthetic-gradients stable-diffusion-webui/extensions/stable-diffusion-webui-aesthetic-gradients
+git clone https://github.com/CiaraStrawberry/TemporalKit.git stable-diffusion-webui/extensions/TemporalKit
 
 # move config
 mv config.json stable-diffusion-webui/config.json
