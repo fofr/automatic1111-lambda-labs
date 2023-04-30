@@ -27,3 +27,16 @@ ssh $SSH_OPTIONS "ubuntu@${IP_ADDRESS}" "sudo mv webui.service /etc/systemd/syst
 
 # SSH into the remote server and run run.sh
 ssh $SSH_OPTIONS "ubuntu@${IP_ADDRESS}" "chmod +x run.sh && screen -S webui -dm bash -c './run.sh; exec sh'"
+
+# Keep pinging the URL until a 200 response is received
+while true; do
+    RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" "http://$IP_ADDRESS:7860")
+    if [ "$RESPONSE" == "200" ]; then
+        break
+    else
+        echo "Waiting for a 200 response..."
+        sleep 5
+    fi
+done
+
+open "http://$IP_ADDRESS:7860"
