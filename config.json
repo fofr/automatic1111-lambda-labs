@@ -68,7 +68,7 @@
     "training_enable_tensorboard": false,
     "training_tensorboard_save_images": false,
     "training_tensorboard_flush_every": 120,
-    "sd_model_checkpoint": "",
+    "sd_model_checkpoint": "Deliberate_v2.safetensors [9aba26abdf]",
     "sd_checkpoint_cache": 0,
     "sd_vae_checkpoint_cache": 0,
     "sd_vae": "Automatic",
@@ -176,5 +176,6 @@
     "control_net_cfg_based_guidance": false,
     "control_net_sync_field_args": false,
     "modelscope_deforum_keep_model_in_vram": false,
-    "modelscope_deforum_vae_settings": "GPU (half precision)"
+    "modelscope_deforum_vae_settings": "GPU (half precision)",
+    "restore_config_state_file": ""
 }
