@@ -20,23 +20,7 @@ else
 fi
 
 # SCP the run.sh file to the remote server
-scp $SSH_OPTIONS -o StrictHostKeyChecking=accept-new run.sh config.json webui.service "ubuntu@${IP_ADDRESS}:"
-
-# SSH into the remote server and set up webui.service and configure passwordless sudo
-ssh $SSH_OPTIONS "ubuntu@${IP_ADDRESS}" "sudo mv webui.service /etc/systemd/system/ && sudo chown root:root /etc/systemd/system/webui.service && sudo chmod 644 /etc/systemd/system/webui.service && echo 'ubuntu ALL=(ALL) NOPASSWD: /bin/systemctl' | sudo tee /etc/sudoers.d/webui"
+scp $SSH_OPTIONS -o StrictHostKeyChecking=accept-new run.sh config.json "ubuntu@${IP_ADDRESS}:"
 
 # SSH into the remote server and run run.sh
-ssh $SSH_OPTIONS "ubuntu@${IP_ADDRESS}" "chmod +x run.sh && screen -S webui -dm bash -c './run.sh; exec sh'"
-
-# Keep pinging the URL until a 200 response is received
-while true; do
-    RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" "http://$IP_ADDRESS:7860")
-    if [ "$RESPONSE" == "200" ]; then
-        break
-    else
-        echo "Waiting for a 200 response..."
-        sleep 5
-    fi
-done
-
-open "http://$IP_ADDRESS:7860"
+ssh $SSH_OPTIONS "ubuntu@${IP_ADDRESS}" "chmod +x run.sh && ./run.sh && bash"

@@ -72,14 +72,6 @@ done
 # TODO: Add videocrafter
 # https://huggingface.co/kabachuha/videocrafter-pruned-weights/resolve/main/model.ckpt
 
-# # run webui manually
-# cd stable-diffusion-webui
-# 1. python launch.py --share --no-download-sd-model
-# 2. ./webui.sh --listen --port 7860 --api --no-download-sd-model
-
-# run webui and keep it running
-sudo systemctl enable --now webui.service
-
-# see logs
-# sudo journalctl -u webui.service -f
-# sudo journalctl -u webui.service -n 100
+# run webui manually
+cd stable-diffusion-webui
+./webui.sh --listen --port 7860 --api --no-download-sd-model
