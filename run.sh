@@ -6,8 +6,8 @@ git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
 # install extensions
 git clone https://github.com/hako-mikan/sd-webui-regional-prompter.git stable-diffusion-webui/extensions/sd-webui-regional-prompter
 git clone https://github.com/Mikubill/sd-webui-controlnet.git stable-diffusion-webui/extensions/sd-webui-controlnet
-git clone https://github.com/deforum-art/sd-webui-modelscope-text2video.git stable-diffusion-webui/extensions/sd-webui-modelscope-text2video
 git clone https://github.com/Coyote-A/ultimate-upscale-for-automatic1111.git stable-diffusion-webui/extensions/ultimate-upscale-for-automatic1111
+git clone https://github.com/kabachuha/sd-webui-text2video stable-diffusion-webui/extensions/sd-webui-text2video
 
 # move config
 mv config.json stable-diffusion-webui/config.json
@@ -59,8 +59,8 @@ done
 TARGET_DIR="stable-diffusion-webui/models/ModelScope/t2v"
 URLS=(
 "https://huggingface.co/kabachuha/modelscope-damo-text2video-pruned-weights/resolve/main/VQGAN_autoencoder.pth"
-"https://huggingface.co/kabachuha/modelscope-damo-text2video-pruned-weights/resolve/main/open_clip_pytorch_model.bin"
-"https://huggingface.co/kabachuha/modelscope-damo-text2video-pruned-weights/resolve/main/text2video_pytorch_model.pth"
+"https://huggingface.co/cerspense/zeroscope_v2_XL/resolve/main/zs2_XL/open_clip_pytorch_model.bin"
+"https://huggingface.co/cerspense/zeroscope_v2_XL/resolve/main/zs2_XL/text2video_pytorch_model.pth"
 "https://huggingface.co/kabachuha/modelscope-damo-text2video-pruned-weights/resolve/main/configuration.json"
 )
 
@@ -74,4 +74,4 @@ done
 
 # run webui manually
 cd stable-diffusion-webui
-./webui.sh --listen --port 7860 --api --no-download-sd-model
+./webui.sh --listen --port 7860 --no-download-sd-model
