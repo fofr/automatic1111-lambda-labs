@@ -16,6 +16,8 @@ mv config.json stable-diffusion-webui/config.json
 TARGET_DIR="stable-diffusion-webui/models/Stable-diffusion"
 URLS=(
 "https://huggingface.co/XpucT/Deliberate/resolve/main/Deliberate_v2.safetensors"
+"https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors"
+"https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0/resolve/main/sd_xl_refiner_1.0.safetensors"
 )
 
 for url in "${URLS[@]}"; do
