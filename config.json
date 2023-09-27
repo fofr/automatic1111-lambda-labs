@@ -10,7 +10,7 @@
     "grid_prevent_empty_spots": false,
     "n_rows": -1,
     "enable_pnginfo": true,
-    "save_txt": true,
+    "save_txt": false,
     "save_images_before_face_restoration": false,
     "save_images_before_highres_fix": false,
     "save_images_before_color_correction": false,
@@ -193,7 +193,7 @@
         "override_settings",
         "scripts"
     ],
-    "grid_zip_filename_pattern": "[datetime]-[seed]-[number]",
+    "grid_zip_filename_pattern": "[datetime]-[seed]",
     "grid_text_active_color": "#000000",
     "grid_text_inactive_color": "#999999",
     "grid_background_color": "#ffffff",
